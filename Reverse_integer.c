@@ -23,6 +23,6 @@ int reverse (int x)
 
 int main(){
     
-    printf("%d\n",reverse(1234));
+    printf("%d\n",reverse(-1234));
     return 0;  
 }
