@@ -2,6 +2,8 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 
 int reverse (int x)
 {
@@ -10,15 +12,24 @@ int reverse (int x)
     {
         int nDigits = floor(log10(abs(x))) + 1;
         char x_str[nDigits];
+        sprintf(x_str,"%d",x);
+       
+        printf("%s",x_str);
 
-        return nDigits;
+        for (int i = strlen(x_str); i >= 0 ; i--)
+        {
+            printf("%c",x_str[i]);
+        }
+
+        //return nDigits;
     }
     return 0;
 }
 
 int main(){
     
-    printf("%d\n",reverse(1234));
+    reverse(1234);
+    //printf("%d\n",reverse(1234));
 
     return 0;  
 }
