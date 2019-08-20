@@ -5,6 +5,7 @@
  *     struct ListNode *next;
  * };
  */
+#include <stdlib.h>
 
 int reverse_num(int x){
     int reversed = 0;
@@ -33,11 +34,25 @@ int get_reverse(struct ListNode *l){
 }
 
 
+
 struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2){
 
     int a = get_reverse(l1);
     int b = get_reverse(l2);
-    printf("%d",a+b);
-    return l1;
-}
 
+    int c_reversed = reverse_num(a+b);
+    printf("%d",c_reversed);
+    struct ListNode *temp_ll = malloc(sizeof temp_ll);
+
+    int temp_val = 0;
+    while (c_reversed > 0)
+    {
+        temp_val = temp_val * 10 + c_reversed % 10;
+        c_reversed = c_reversed / 10;
+        //adding into node
+        l3 -> val = temp_val;
+    }
+    
+
+    return l3;
+}
