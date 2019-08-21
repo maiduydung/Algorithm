@@ -33,13 +33,25 @@ int get_reverse(struct ListNode *l){
     return reversed;
 }
 
+void append (struct ListNode **l, int new_val){
+    struct ListNode *new_node = malloc(sizeof new_node);
+    struct ListNode *last = l;
 
+    new_node -> val = new_val;
+    new_node -> next = NULL;
 
-void push(struct ListNode **l, int new_val){
-    struct ListNode * new_node = malloc(sizeof(struct ListNode));
-    //new_node -> val = new_val;
-    //new_node ->next = *l;
-    //(*l) = new_node;
+    if (*l == NULL)
+    {
+        *l = new_node;
+        return ;
+    }
+
+    while (last -> next != NULL)
+    {
+        last = last ->next;
+    }
+    last ->next = new_node;
+    return ;
 }
 
 struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2){
@@ -51,7 +63,10 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2){
     printf("%d\n",c_reversed);
 
     struct ListNode *l3;
+
     int temp_val = 0;
+
+
 
     while (c_reversed > 0)
     {
@@ -59,8 +74,7 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2){
         c_reversed = c_reversed / 10;
         //adding into node
         printf("%d\n",temp_val);
-        push(&l3,temp_val);
-        
+        append(&l3,temp_val);
     }
     
 
