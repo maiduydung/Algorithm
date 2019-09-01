@@ -54,6 +54,14 @@ void append (struct ListNode **l, int new_val){
     return ;
 }
 
+
+void push(struct ListNode **l, int new_val){
+    struct ListNode * new_node = malloc(sizeof(new_node));
+    new_node -> val = new_val;
+    new_node ->next = *l;
+    (*l) = new_node;
+}
+
 struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2){
 
     int a = get_reverse(l1);
