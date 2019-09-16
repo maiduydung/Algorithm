@@ -62,4 +62,6 @@ int main(){
     char my_name[] ="maiduydung";
     int elements = sizeof(my_name) / sizeof(my_name[0]);
     mergesort(my_name, elements);
+
+    printf("%s\n", my_name);
 }
