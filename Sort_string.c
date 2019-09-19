@@ -57,11 +57,18 @@ char *mergesort(char a[], int n){
     return merge(arr_one, arr_two);
 }
 
+////friendly-reminder arrays always be passed by reference in c
+void test(char a[]){
+    a[0] = 'a';
+    return ;
+}
+
 
 int main(){
     char my_name[] ="maiduydung";
     int elements = sizeof(my_name) / sizeof(my_name[0]);
     mergesort(my_name, elements);
-
+    //test(my_name);
+    
     printf("%s\n", my_name);
 }
