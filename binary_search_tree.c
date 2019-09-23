@@ -35,6 +35,25 @@ void in_order(Node *node){
     
 }
 
+void pre_order(Node *node){
+    if (node != NULL)
+    {
+        printf("%d\n", node ->value);
+        pre_order(node ->left_node);
+        pre_order(node ->right_node);
+    }
+    
+}
+
+void post_order(Node *node){
+    if (node != NULL)
+    {
+        post_order(node ->left_node);
+        post_order(node ->right_node);
+        printf("%d\n", node ->value);
+    }
+}
+
 int main(){
     Node *a = NULL;
     int input_arr[] = {10, 7, 11, 6, 8, 20, 1, 9, 14, 22};
@@ -42,6 +61,6 @@ int main(){
     {
         a = insert_node(a, input_arr[i]);
     }
-    in_order(a);
+    post_order(a);
     return 0;
 }
