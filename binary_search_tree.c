@@ -25,11 +25,12 @@ Node *insert_node(Node *node, int input_value){
     return node;
 }
 
-void in_order_sort(Node *node, char result){
+void in_order_sort(Node *node, char sorted_arr, int size_n){
     if (node != NULL)
     {    
         in_order_sort(node ->left_node);
-        
+        sorted_arr[]
+
         printf("%c\n", node ->value);
         in_order_sort(node ->right_node);
     }
