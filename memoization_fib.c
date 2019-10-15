@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include < 
+#include <malloc.h>
 int fib(int n, int checked[]){
     if (n <= 1) return n;
     if (checked[n]) return n;
@@ -11,7 +11,7 @@ int fib(int n, int checked[]){
 
 int main(){
     int n = 100;
-    int [] checked_arr = malloc()
+    
 
     return 0;
 }
