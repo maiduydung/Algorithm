@@ -2,5 +2,7 @@
     "files.associations": {
         "stdbool.h": "c",
         "string.h": "c"
-    }
+    },
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
 }
