@@ -34,13 +34,12 @@ class KnightsTour:
         self.count = self.count + 1
         self.board[x][y] = self.count
         for i in range(8):
-            if(self.count == self.Size^2):
-                #print(self.board)
-                return self.board
+            if(self.count == self.Size**2):
+                self.print_board()
+                exit()
             u = x + self.x_offset[i]
             v = y + self.y_offset[i]
             if(u >= 0) and (u < self.Size) and (v >= 0) and (v < self.Size) and (self.board[u][v] == 0):
-                self.print_board()
                 self.move(u, v)
             #board[u][v] = 0 => not travel there yet
         
