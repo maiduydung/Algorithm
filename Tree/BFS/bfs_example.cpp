@@ -4,7 +4,7 @@
 #define SIZE 6
 using namespace std;
 
-list<int>adj[100];//100 elements(node) arr of vector
+list<int>adj[100];//100 elements(node) arr of list
 //0 -> a -> b -> c
 //1 -> a -> b -> c
 //2 -> a -> b -> c
