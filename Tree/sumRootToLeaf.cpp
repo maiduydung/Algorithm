@@ -19,7 +19,11 @@ public:
     
     int dfs(TreeNode *root, int result = 0){
         if(!root) return 0;
-        result = result*2 + root->val;
+        result = result*2 + root->val;//every time we go 1 lv lower, the result got multiplied by 2
+        //001 = 1
+        //010 = 1*2 = 2
+        //100 = 1*2*2 = 4
+
         if((root->left == NULL) && (root->right == NULL))
             return result;
         else{
