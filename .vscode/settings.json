@@ -2,7 +2,12 @@
     "files.associations": {
         "stdbool.h": "c",
         "string.h": "c",
-        "list": "cpp"
+        "list": "cpp",
+        "vector": "cpp",
+        "deque": "cpp",
+        "initializer_list": "cpp",
+        "xstring": "cpp",
+        "xutility": "cpp"
     },
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true
