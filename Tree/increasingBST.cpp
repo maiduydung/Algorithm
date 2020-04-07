@@ -15,7 +15,7 @@ struct TreeNode {
 };
 class Solution {
 public:
-    TreeNode* increasingBST(TreeNode* root, TreeNode *next_node = NULL) {
+    TreeNode* increasingBST(TreeNode* root) {
         if(!root)
             return root;
         vector<int> v1;   
