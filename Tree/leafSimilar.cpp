@@ -21,7 +21,8 @@ public:
         return v1 == v2; //namespace std provides the == operator, really useful in this case
     }
 
-    void pre_order(TreeNode *root, vector<int> &vect){
+    void pre_order(TreeNode *root, vector<int> &vect)//dont forget to pass by reference &, we need to store the value to vector
+    {
         if (!root)
             return;
         if((root ->left == NULL) && (root->right == NULL))
