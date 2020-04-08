@@ -7,7 +7,9 @@
         "deque": "cpp",
         "initializer_list": "cpp",
         "xstring": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "algorithm": "cpp",
+        "limits": "cpp"
     },
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true
