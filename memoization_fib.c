@@ -23,6 +23,6 @@ void all_fib(int n){
 }
 
 int main(){
-    all_fib(21);
+    all_fib(30);
     return 0;
 }
