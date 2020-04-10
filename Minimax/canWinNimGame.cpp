@@ -16,7 +16,6 @@ public:
         //lets take an example n = 5
         //if we remove 3 stone. 2 left
         //2 stone, 3 left
-        //1 stone, 4 left -> here it would depend on if you go first or not
-        //but since we only need to know IF WE CAN WIN OR NOT, it doesnt matter
+        //1 stone, 4 left -> again this would result in our loss
     }
 };
