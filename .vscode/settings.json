@@ -9,7 +9,8 @@
         "xstring": "cpp",
         "xutility": "cpp",
         "algorithm": "cpp",
-        "limits": "cpp"
+        "limits": "cpp",
+        "iostream": "cpp"
     },
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true
