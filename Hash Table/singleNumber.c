@@ -7,6 +7,8 @@
 
 //(2 XOR 2) XOR (5 XOR 5) XOR 9 = 0 XOR 0 XOR 9 = 9
 
+//a ^ b ^ a = (a ^ a) ^ b = 0 ^ b = b
+
 int singleNumber(int* nums, int numsSize)
 {
     int re=0;//if left uninitialized, re will have random value to XOR, we dont want that
