@@ -32,18 +32,21 @@ def dijkstra(G, source):
         X.append(i)
     D[source] = 0
     X.remove(source)
+
+    print("all nodes: ", G.nodes())
     while X:
-        #for each univisted neighbor from current vertex
-        
-        #for node in G.nodes(source):
-        
-        for i in G.neighbors(source):
-            D_cal[i] = G.edges[source, i]['weight'] + D[source]
-            min_node = get_min_node(D_cal, X)
-            if min_node in X:
-                if (D[i] > D_cal[i]):
-                    D[i] = D_cal[i]
-                    X.remove(min_node)
-        print(D)
-                
-dijkstra(G,0)
+        for node in G.nodes():
+            for i in G.neighbors(node):
+                D_cal[i] = G.edges[node, i]['weight'] + D[node]
+                min_node = get_min_node(D_cal, X)
+                if min_node in X:
+                    if (D[i] > D_cal[i]):
+                        D[i] = D_cal[i]
+                        X.remove(min_node)
+
+    for i in range(len(D)):
+        print(i, " ", D[i])
+
+    print('---------')
+    print(nx.shortest_path(G,source))
+dijkstra(G,1)
