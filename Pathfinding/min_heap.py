@@ -2,7 +2,7 @@ import heapq
 
 Q = []
 
-#push tuple (value, index) to heap
+#push tuple (index, value) to heap
 heapq.heappush(Q, (5, 1))
 heapq.heappush(Q, (3, 2))
 
