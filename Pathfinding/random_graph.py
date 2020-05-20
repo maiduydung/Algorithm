@@ -2,7 +2,8 @@ import networkx as nx
 import random
 
 #generate random graph
-G = nx.fast_gnp_random_graph(1000, 0.01)
+#p = 5%
+G = nx.fast_gnp_random_graph(10000, 0.05)
 
 #assign random weight to each edge
 for (u,v) in G.edges():
