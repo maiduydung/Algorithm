@@ -2,42 +2,28 @@ import networkx as nx
 import time
 import heapq
 
-G = nx.read_weighted_edgelist('dij.edgelist', nodetype = int)
+G = nx.read_weighted_edgelist('random_graph.edgelist', nodetype = int)
 
-
-
-
-def print_sol(D):
-    for i in range(len(D)):
-        print(i, " ", D[i])
-
-def dijkstra(G, source):
-    D = [float('inf')] * nx.number_of_nodes(G)
-    D[source] = 0
+def dijkstra_heap(G, s):
     X = set(G.nodes())
+    D = [float('inf')] * nx.number_of_nodes(G)
+    D[s] = 0
     Heap = []
+    heapq.heappush(Heap,(0, s))
 
-    heapq.heappush(Heap,(0, source))
     while X:
-        min_node, min_idx = heapq.heappop(Heap)
-        min_node = int(min_node)
-        print(min_node, min_idx)
-        if(Heap):
-            if(Heap[0][1] == min_idx):
-                heapq.heappop(Heap)
-
-        X.remove(min_idx)
-        neighbors = G.neighbors(min_idx)
-        for neighbor in neighbors:
-            if neighbor in X:
-                if(D[min_idx] + G.edges[min_idx, neighbor]['weight'] < D[neighbor]):
-                    D[neighbor] = (D[min_idx] + G.edges[min_idx, neighbor]['weight'])
-                    heapq.heappush(Heap, (D[neighbor], neighbor))
+        min_val, u = heapq.heappop(Heap)
+        #if overlapped
+        if(min_val != D[u]):
+            continue
+        X.remove(u)
+        for v in G.neighbors(u):
+            tmp_dst = D[u] + G.edges[u, v]['weight']
+            if D[v] > tmp_dst:
+                D[v] = tmp_dst
+                heapq.heappush(Heap, (D[v], v))
 
 
-    print(D)
 start = time.time()
-dijkstra(G,0)
-
+dijkstra_heap(G, 0)
 print("Elapsed time n = 10000: ", time.time() - start)
-
