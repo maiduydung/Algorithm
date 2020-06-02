@@ -1,0 +1,21 @@
+import networkx as nx
+
+G = nx.read_weighted_edgelist('bf.edgelist', create_using=nx.DiGraph(), nodetype= int)
+
+def bellman_ford(G, source):
+    n = nx.number_of_nodes(G)
+    D = [float('inf')] * n
+    D[source] = 0
+    for u in range(1, n):
+        D_new = D[:]
+        for u, v in G.edges():
+            if (D_new[u] + G.edges[u,v]['weight'] < D_new[v]):
+                D_new[v] = D_new[u] + G.edges[u,v]['weight']
+        D = D_new
+    
+    for u, v in G.edges():
+        if(D[v] > D[u] + G.edges[u,v]['weight']):
+            return (False, D)
+    return (True, D)
+
+print(bellman_ford(G, 0))
