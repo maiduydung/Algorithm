@@ -6,3 +6,5 @@ Two Pointers/temp.cpp
 memoization_fib.c
 *.out
 *.exe
+Pathfinding/prim_test.py
+Pathfinding/dijkstra_test.py
