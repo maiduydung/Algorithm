@@ -6,7 +6,7 @@ def bellman_ford(G, source):
     n = nx.number_of_nodes(G)
     D = [float('inf')] * n
     D[source] = 0
-    for u in range(1, n):
+    for i in range(1, n):
         D_new = D[:]
         for u, v in G.edges():
             if (D_new[u] + G.edges[u,v]['weight'] < D_new[v]):
