@@ -7,11 +7,11 @@ def bellman_ford(G, source):
     D = [float('inf')] * n
     D[source] = 0
     for i in range(1, n):
-        D_new = D[:]
+        #D_new = D[:]
         for u, v in G.edges():
-            if (D_new[u] + G.edges[u,v]['weight'] < D_new[v]):
-                D_new[v] = D_new[u] + G.edges[u,v]['weight']
-        D = D_new
+            if (D[u] + G.edges[u,v]['weight'] < D[v]):
+                D[v] = D[u] + G.edges[u,v]['weight']
+        #D = D_new
     
     for u, v in G.edges():
         if(D[v] > D[u] + G.edges[u,v]['weight']):
