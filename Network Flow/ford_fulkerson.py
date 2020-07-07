@@ -1,6 +1,6 @@
 import networkx as nx
 import queue
-N = nx.read_weighted_edgelist('ff.edgelist', nodetype = int)
+G = nx.read_weighted_edgelist('ff.edgelist', create_using=nx.DiGraph(), nodetype=int)
 
 # basic intuition
 # ford_fulkerson(G, s, t){
@@ -39,7 +39,7 @@ def restore_shortestpath(u, v, P):
     temp = v
     while temp != u:
         parent = P[temp]
-        path.append(parent, temp)
+        path.append((parent, temp))
         temp = parent
     path.reverse()
     return path
@@ -53,9 +53,26 @@ def min_capacity(N, augment_path):
             min_cap = cap
     return min_cap
 
+def increase_flow(N, path, amount, flow):
+  for u, v in path:
+    if flow[(v, u)] <= 0:
+      flow[(u, v)] += amount
+    else:
+      diff = flow[(v, u)] - amount
+      if diff >= 0:
+        flow[(v, u)] = diff
+      else:
+        flow[(u, v)] = -diff
+        flow[(v, u)] = 0
+    N.edges[u, v]['weight'] -= amount
+    if N.has_edge(v, u):
+      N.edges[v, u]['weight'] += amount
+    else:
+      N.add_edge(v, u, weight=amount)
+
 def ford_fulkerson(G, s, t):
-    N = G.copy
-    f = {} #edge list
+    N = G.copy()
+    f = {} #flowing edge list
     for u, v in N.edges:
         f[(u, v)] = 0
         f[(v, u)] = 0
@@ -66,4 +83,10 @@ def ford_fulkerson(G, s, t):
         increase_flow(N, augment_path, min_cap, f)
         P, is_found = find_augmentpath(N, s, t)
     return N, f
+
+
+s = 0
+t = 5
+N, f = ford_fulkerson(G, s, t)
+print(f)
 
