@@ -30,6 +30,21 @@ def find_augmentpath(N, s, t):
                     P[w] = v
     return (P, False)
 
+def restore_shortestpath(u, v, P):
+    #basically we're just swapping u and v here
+    #then append the (parent -> child) to path
+    #then at the end reverse the list because if not, it'll look like (sink, parent1, parent2, ..., start)
+    #we dont want that
+
+    path = []
+    temp = v
+    while temp != u:
+        parent = P[temp]
+        path.append(parent, temp)
+        temp = parent
+    path.reverse()
+    return path
+
 
 def ford_fulkerson(G, s, t):
     N = G.copy
