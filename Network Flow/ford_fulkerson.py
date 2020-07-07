@@ -35,7 +35,6 @@ def restore_shortestpath(u, v, P):
     #then append the (parent -> child) to path
     #then at the end reverse the list because if not, it'll look like (sink, parent1, parent2, ..., start)
     #we dont want that
-
     path = []
     temp = v
     while temp != u:
@@ -45,6 +44,14 @@ def restore_shortestpath(u, v, P):
     path.reverse()
     return path
 
+def min_capacity(N, augment_path):
+    min_cap = float('inf')
+    #flag technique, nothing special
+    for u, v in augment_path:
+        cap = N.edges[u, v]['weight']
+        if cap < min_cap:
+            min_cap = cap
+    return min_cap
 
 def ford_fulkerson(G, s, t):
     N = G.copy
